@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark" data-bg-style="minimal">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VIDEO PRO MAX — Desktop Media Utility</title>
+    <meta name="description" content="Công cụ tải video không logo 4K, trích xuất âm thanh MP3 và quản lý media chất lượng cao.">
+    <meta name="theme-color" content="#0B0F14">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons 6.5 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- QRCode.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    
+    <!-- External Professional Desktop Utility CSS -->
+    <link rel="stylesheet" href="/static/css/style.css?v=3.2.0">
+
+    <!-- Instant Base Dark Mode Prevent-FOUC -->
+    <style>
+        html, body {
+            background-color: #0B0F14 !important;
+            color: #F1F5F9;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ════════════════════ MAIN APP WRAPPER ════════════════════ -->
+    <div class="app-layout">
+        
+        <!-- TOP NAVIGATION BAR -->
+        <header class="studio-header">
+            <div class="header-inner">
+                
+                <!-- Brand & Version -->
+                <div class="brand-group">
+                    <div class="brand-logo-wrap">
+                        <div class="logo-hex">
+                            <i class="fa-solid fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="brand-meta">
+                        <div class="brand-title-row">
+                            <h1 class="brand-name">VIDEO PRO MAX</h1>
+                            <span class="badge-version">
+                                <span class="pulse-dot"></span>
+                                v3.0 PRO
+                            </span>
+                        </div>
+                        <p class="brand-tagline">Tải video không logo • 4K Full HD • Tách nhạc MP3</p>
+                    </div>
+                </div>
+
+                <!-- Live Status Indicators -->
+                <div class="header-controls">
+                    <!-- FFmpeg Indicator -->
+                    <div class="status-pill" id="pill-ffmpeg" title="Trạng thái FFmpeg Portable">
+                        <span class="pill-dot success"></span>
+                        <span class="pill-text">FFmpeg OK</span>
+                    </div>
+
+                    <!-- WebSocket Server Status -->
+                    <div class="status-pill" id="pill-ws" title="Kết nối thời gian thực">
+                        <span class="pill-dot success"></span>
+                        <span class="pill-text">Online</span>
+                    </div>
+                </div>
+
+            </div>
+        </header>
+
+        <!-- ════════════════════ SINGLE-PAGE MAIN CONTENT ════════════════════ -->
+        <main class="studio-main single-view">
+            
+            <!-- ────────────────── TẢI NHANH & PHÂN TÍCH ────────────────── -->
+                
+                <!-- Hero Search & Action Card -->
+                <div class="glass-card hero-downloader-card">
+                    
+                    <div class="hero-header">
+                        <div class="hero-icon-badge">
+                            <i class="fa-solid fa-link"></i>
+                        </div>
+                        <div class="hero-text">
+                            <h2 class="hero-title">Dán đường link video hoặc âm thanh</h2>
+                            <p class="hero-sub">Hỗ trợ tải video <strong>không logo</strong> từ TikTok, Douyin, YouTube 4K, Facebook HD, Reels, X...</p>
+                        </div>
+                    </div>
+
+                    <!-- Main Search Input Bar -->
+                    <div class="search-bar-wrap">
+                        <div class="input-glow-border">
+                            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                            <input 
+                                type="text" 
+                                id="url-input" 
+                                class="url-input-field" 
+                                placeholder="Dán link YouTube, TikTok, Facebook, Douyin, Instagram..." 
+                                autocomplete="off"
+                                spellcheck="false"
+                            >
+                            <button class="btn-action-paste" id="btn-paste" title="Dán nhanh từ Clipboard">
+                                <i class="fa-regular fa-clipboard"></i>
+                                <span>Dán</span>
+                            </button>
+                            <button class="btn-action-analyze" id="btn-analyze">
+                                <span class="btn-content">
+                                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                    <span>Phân tích</span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Platform Badges & Batch Toggle -->
+                    <div class="platform-chips-row">
+                        <div class="platform-chips-wrap" id="platform-chips-wrap">
+                            <div class="platform-chips">
+                                <span class="p-chip" data-platform="youtube"><i class="fa-brands fa-youtube text-red"></i> YouTube 4K</span>
+                                <span class="p-chip" data-platform="tiktok"><i class="fa-brands fa-tiktok text-cyan"></i> TikTok No Logo</span>
+                                <span class="p-chip" data-platform="facebook"><i class="fa-brands fa-facebook text-blue"></i> Facebook</span>
+                                <span class="p-chip" data-platform="instagram"><i class="fa-brands fa-instagram text-pink"></i> Instagram</span>
+                                <span class="p-chip" data-platform="douyin"><i class="fa-solid fa-video text-orange"></i> Douyin HD</span>
+                                <span class="p-chip" data-platform="x"><i class="fa-brands fa-x-twitter"></i> X / Twitter</span>
+                                <span class="p-chip" data-platform="more"><i class="fa-solid fa-globe"></i> 1000+ Khác</span>
+                            </div>
+                        </div>
+                        <div class="platform-actions-right">
+                            <button class="btn-toggle-chips" id="btn-toggle-chips" title="Ẩn/Hiện nền tảng hỗ trợ">
+                                <i class="fa-solid fa-tags"></i>
+                                <span>Nền tảng</span>
+                                <i class="fa-solid fa-chevron-up toggle-chips-icon"></i>
+                            </button>
+                            <button class="btn-toggle-batch" id="btn-toggle-batch">
+                                <i class="fa-solid fa-layer-group"></i>
+                                <span>Tải hàng loạt</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Batch Downloader Collapsible Drawer -->
+                    <div class="batch-drawer" id="batch-drawer" style="display: none;">
+                        <div class="batch-inner">
+                            <div class="batch-header">
+                                <h3><i class="fa-solid fa-list-check"></i> Chế độ tải danh sách nhiều link cùng lúc</h3>
+                                <div class="batch-tools">
+                                    <button class="btn-subtle" id="btn-batch-clipboard"><i class="fa-regular fa-clipboard"></i> Dán tất cả link trong Clipboard</button>
+                                </div>
+                            </div>
+                            <textarea id="batch-urls" class="batch-textarea" rows="5" placeholder="Dán danh sách các đường link vào đây, mỗi dòng một link...&#10;https://www.youtube.com/watch?v=...&#10;https://www.tiktok.com/@...&#10;https://www.facebook.com/reel/..."></textarea>
+                            <div class="batch-footer">
+                                <div class="batch-options">
+                                    <label class="form-label-inline">Chất lượng:</label>
+                                    <select id="batch-quality" class="studio-select">
+                                        <option value="best">Cao nhất (Tự động 4K/1080p MP4)</option>
+                                        <option value="1080">1080p Full HD</option>
+                                        <option value="720">720p HD</option>
+                                    </select>
+                                    <label class="studio-checkbox">
+                                        <input type="checkbox" id="batch-audio-only">
+                                        <span class="chk-box"></span>
+                                        <span class="chk-label">Chỉ tải âm thanh MP3</span>
+                                    </label>
+                                </div>
+                                <button class="btn-primary-glow" id="btn-batch-start">
+                                    <i class="fa-solid fa-download"></i> Bắt đầu tải hàng loạt
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ═══════════ MULTI-STAGE ANALYSIS LOADER ═══════════ -->
+                <div class="radar-analysis-card" id="radar-loader" style="display: none;">
+                    <div class="radar-box">
+                        <div class="radar-info">
+                            <div class="radar-status-badge">
+                                <span class="spinner-inline"></span>
+                                <span id="radar-current-stage-title">Đang phân tích dữ liệu video...</span>
+                            </div>
+                            <h3 class="radar-headline" id="radar-target-url">Đang kết nối tới máy chủ CDN...</h3>
+                            
+                            <!-- 4-Stage Progress Tracker -->
+                            <div class="radar-stages-grid">
+                                <div class="stage-step" id="stage-1">
+                                    <div class="stage-icon"><i class="fa-solid fa-network-wired"></i></div>
+                                    <div class="stage-text">
+                                        <span class="step-num">Giai đoạn 1</span>
+                                        <span class="step-desc">Giải mã URL & CDN</span>
+                                    </div>
+                                    <div class="stage-indicator"></div>
+                                </div>
+                                <div class="stage-step" id="stage-2">
+                                    <div class="stage-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                                    <div class="stage-text">
+                                        <span class="step-num">Giai đoạn 2</span>
+                                        <span class="step-desc">Vượt Token & Anti-403</span>
+                                    </div>
+                                    <div class="stage-indicator"></div>
+                                </div>
+                                <div class="stage-step" id="stage-3">
+                                    <div class="stage-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                                    <div class="stage-text">
+                                        <span class="step-num">Giai đoạn 3</span>
+                                        <span class="step-desc">Bóc tách No-Logo</span>
+                                    </div>
+                                    <div class="stage-indicator"></div>
+                                </div>
+                                <div class="stage-step" id="stage-4">
+                                    <div class="stage-icon"><i class="fa-solid fa-sliders"></i></div>
+                                    <div class="stage-text">
+                                        <span class="step-num">Giai đoạn 4</span>
+                                        <span class="step-desc">Tối ưu bảng định dạng</span>
+                                    </div>
+                                    <div class="stage-indicator"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ═══════════ VIDEO ANALYSIS RESULT CARD ═══════════ -->
+                <div class="glass-card preview-result-card" id="preview-card" style="display: none;">
+                    <div class="preview-layout">
+                        
+                        <!-- Left Poster & Quick Info -->
+                        <div class="preview-poster-col">
+                            <div class="poster-container">
+                                <img id="preview-thumb" src="" alt="Thumbnail Video" class="preview-img">
+                                <div class="poster-overlay">
+                                    <span class="badge-duration" id="preview-duration"><i class="fa-regular fa-clock"></i> 00:00</span>
+                                    <span class="badge-platform-tag" id="preview-platform">YouTube</span>
+                                </div>
+                            </div>
+                            <div class="preview-uploader-row">
+                                <i class="fa-regular fa-user"></i>
+                                <span id="preview-uploader" class="uploader-name">Tác giả</span>
+                            </div>
+                        </div>
+
+                        <!-- Right Options & Download Matrix -->
+                        <div class="preview-details-col">
+                            <h3 class="preview-title" id="preview-title">Tiêu đề video</h3>
+                            
+                            <!-- Format Tabs: Video MP4 vs Audio MP3 -->
+                            <div class="format-mode-tabs">
+                                <button class="mode-tab-btn active" id="btn-mode-video" data-mode="video">
+                                    <i class="fa-solid fa-film"></i> Video Chuẩn MP4
+                                </button>
+                                <button class="mode-tab-btn" id="btn-mode-audio" data-mode="audio">
+                                    <i class="fa-solid fa-music"></i> Chỉ Âm Thanh MP3
+                                </button>
+                            </div>
+
+                            <!-- Quality Resolution Grid for Video -->
+                            <div class="quality-grid-panel" id="panel-video-quality">
+                                <label class="panel-section-label"><i class="fa-solid fa-display"></i> Chọn độ phân giải:</label>
+                                <div class="quality-chips-grid" id="quality-selector-container"></div>
+                            </div>
+
+                            <!-- Bitrate Grid for Audio MP3 -->
+                            <div class="audio-bitrate-panel" id="panel-audio-quality" style="display: none;">
+                                <label class="panel-section-label"><i class="fa-solid fa-headphones"></i> Chọn chất lượng âm thanh MP3:</label>
+                                <div class="quality-chips-grid">
+                                    <button class="q-chip-btn active" data-bitrate="320">
+                                        <span class="q-name">320 kbps</span>
+                                        <span class="q-badge">Lossless Master</span>
+                                    </button>
+                                    <button class="q-chip-btn" data-bitrate="192">
+                                        <span class="q-name">192 kbps</span>
+                                        <span class="q-badge">Chuẩn Khuyên Dùng</span>
+                                    </button>
+                                    <button class="q-chip-btn" data-bitrate="128">
+                                        <span class="q-name">128 kbps</span>
+                                        <span class="q-badge">Dung lượng nhẹ</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Advanced Collapsible Drawer -->
+                            <details class="advanced-drawer">
+                                <summary class="advanced-summary">
+                                    <span><i class="fa-solid fa-gear"></i> Tùy chọn nâng cao (Cắt video, Phụ đề, Cookie)</span>
+                                    <i class="fa-solid fa-chevron-down chevron-icon"></i>
+                                </summary>
+                                <div class="advanced-body">
+                                    <div class="adv-grid">
+                                        <div class="adv-field">
+                                            <label><i class="fa-solid fa-scissors"></i> Cắt từ giây:</label>
+                                            <input type="number" id="opt-cut-start" class="studio-input" placeholder="0 (bắt đầu)" min="0" step="0.5">
+                                        </div>
+                                        <div class="adv-field">
+                                            <label><i class="fa-solid fa-scissors"></i> Đến giây:</label>
+                                            <input type="number" id="opt-cut-end" class="studio-input" placeholder="Đến hết" min="0" step="0.5">
+                                        </div>
+                                        <div class="adv-field">
+                                            <label><i class="fa-solid fa-closed-captioning"></i> Tải phụ đề:</label>
+                                            <select id="opt-subs" class="studio-select">
+                                                <option value="">Không tải phụ đề</option>
+                                                <option value="vi">Tiếng Việt (vi)</option>
+                                                <option value="en">Tiếng Anh (en)</option>
+                                                <option value="all">Tất cả ngôn ngữ</option>
+                                            </select>
+                                        </div>
+                                        <div class="adv-field">
+                                            <label><i class="fa-solid fa-cookie"></i> Lấy cookie từ trình duyệt:</label>
+                                            <select id="opt-browser-cookie" class="studio-select">
+                                                <option value="">Không dùng</option>
+                                                <option value="chrome">Google Chrome</option>
+                                                <option value="edge">Microsoft Edge</option>
+                                                <option value="firefox">Mozilla Firefox</option>
+                                                <option value="brave">Brave Browser</option>
+                                                <option value="opera">Opera</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </details>
+
+                            <!-- Download Action Button -->
+                            <div class="preview-actions-row">
+                                <button class="btn-start-download-glow" id="btn-execute-download">
+                                    <i class="fa-solid fa-cloud-arrow-down"></i>
+                                    <span id="btn-download-text">Bắt đầu tải xuống ngay</span>
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+            <!-- ────────────────── LIVE PROGRESS / HÀNG ĐỢI TẢI XUỐNG ────────────────── -->
+            <div class="glass-card tasks-manager-card" id="tasks-section">
+                <div class="tasks-header">
+                    <div class="tasks-title-group">
+                        <div class="card-title-row">
+                            <h2><i class="fa-solid fa-bars-progress text-cyan"></i> Tiến trình tải xuống</h2>
+                            <span class="section-count-badge" id="tasks-badge">0</span>
+                        </div>
+                        <p class="tasks-sub">Theo dõi tốc độ tải và thời gian hoàn thành theo thời gian thực</p>
+                    </div>
+                    <div class="card-header-actions">
+                        <button class="btn-subtle btn-sm" id="btn-refresh-tasks" title="Làm mới tiến trình"><i class="fa-solid fa-rotate-right"></i></button>
+                        <button class="btn-card-toggle" id="btn-toggle-tasks" title="Thu gọn / Mở rộng"><i class="fa-solid fa-chevron-up"></i></button>
+                    </div>
+                </div>
+
+                <div class="card-collapsible-body" id="tasks-collapsible-body">
+                    <div class="tasks-list" id="tasks-container">
+                        <div class="empty-state-compact" id="tasks-empty">
+                            <i class="fa-solid fa-circle-check text-emerald"></i>
+                            <span>Chưa có tiến trình tải nào đang chạy. Dán link ở trên để bắt đầu!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ────────────────── KHO MEDIA ĐÃ TẢI VỀ ────────────────── -->
+            <div class="glass-card media-vault-card" id="vault-section">
+                <div class="vault-header">
+                    <div class="vault-title-group">
+                        <div class="card-title-row">
+                            <h2><i class="fa-solid fa-photo-film text-cyan"></i> Kho Video & Âm Thanh Đã Tải</h2>
+                            <span class="section-count-badge" id="vault-badge">0</span>
+                        </div>
+                        <p class="vault-sub">Xem trực tuyến, phát nhạc hoặc tải trực tiếp về máy</p>
+                    </div>
+                    <div class="card-header-actions">
+                        <div class="search-vault-box">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" id="vault-filter-input" placeholder="Lọc tệp theo tên...">
+                        </div>
+                        <button class="btn-subtle btn-sm" id="btn-refresh-vault" title="Làm mới danh sách"><i class="fa-solid fa-rotate-right"></i></button>
+                        <button class="btn-card-toggle" id="btn-toggle-vault" title="Thu gọn / Mở rộng"><i class="fa-solid fa-chevron-up"></i></button>
+                    </div>
+                </div>
+
+                <div class="card-collapsible-body" id="vault-collapsible-body">
+                    <!-- Filter Chips -->
+                    <div class="vault-filter-chips">
+                        <button class="filter-chip active" data-filter="all">Tất cả (<span id="count-all">0</span>)</button>
+                        <button class="filter-chip" data-filter="video"><i class="fa-solid fa-video"></i> Video MP4 (<span id="count-video">0</span>)</button>
+                        <button class="filter-chip" data-filter="audio"><i class="fa-solid fa-music"></i> Âm thanh MP3 (<span id="count-audio">0</span>)</button>
+                    </div>
+
+                    <!-- Media Grid -->
+                    <div class="media-grid" id="vault-grid"></div>
+
+                    <div class="empty-state-compact" id="vault-empty" style="display: none;">
+                        <i class="fa-solid fa-folder-open text-muted"></i>
+                        <span>Kho media đang trống. Các video đã tải về sẽ xuất hiện tại đây.</span>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- ════════════════════ CINEMA PLAYER MODAL ════════════════════ -->
+        <div class="studio-modal-overlay" id="cinema-modal" style="display: none;">
+            <div class="cinema-modal-box">
+                <div class="cinema-header">
+                    <div class="cinema-title-wrap">
+                        <i class="fa-solid fa-clapperboard text-cyan"></i>
+                        <h3 id="cinema-title">Phát Video Trực Tuyến</h3>
+                    </div>
+                    <div class="cinema-controls">
+                        <a id="btn-cinema-download" href="#" download class="btn-subtle btn-sm"><i class="fa-solid fa-download"></i> Tải về máy</a>
+                        <button class="btn-subtle btn-sm" id="btn-close-cinema"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                </div>
+
+                <div class="cinema-screen" id="cinema-screen-container">
+                    <video id="cinema-video" controls playsinline></video>
+                </div>
+
+                <div class="cinema-audio-screen" id="cinema-audio-container" style="display: none;">
+                    <div class="audio-disc-wrap">
+                        <div class="audio-disc"><i class="fa-solid fa-music"></i></div>
+                    </div>
+                    <canvas id="audio-waveform-canvas"></canvas>
+                    <audio id="cinema-audio" controls></audio>
+                </div>
+            </div>
+        </div>
+
+        <!-- ════════════════════ TOAST NOTIFICATION CONTAINER ════════════════════ -->
+        <div class="toast-container" id="toast-container"></div>
+
+    </div>
+
+    <!-- Application Core Script -->
+    <script src="/static/js/app.js?v=3.2.0"></script>
+</body>
+</html>

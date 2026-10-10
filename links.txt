@@ -1,0 +1,10 @@
+# ==============================================================================
+# DANH SÁCH LINK VIDEO CẦN TẢI (Mỗi dòng 1 link)
+# Hỗ trợ: YouTube, TikTok, Facebook, Instagram, Douyin, X/Twitter, Vimeo, v.v.
+# Các dòng bắt đầu bằng dấu # sẽ được bỏ qua.
+# ==============================================================================
+
+# Dán các đường link của bạn vào dưới đây:
+# https://www.youtube.com/watch?v=...
+# https://www.tiktok.com/@user/video/...
+# https://www.facebook.com/reel/...

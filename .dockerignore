@@ -1,0 +1,13 @@
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.git
+.gitignore
+bin/*.exe
+downloads/
+*.zip
+*.tar.gz
+*.log
+.venv
+venv

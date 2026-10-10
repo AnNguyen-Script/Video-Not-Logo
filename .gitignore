@@ -1,0 +1,30 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local environment & virtualenvs
+.venv/
+venv/
+ENV/
+env/
+
+# Large local files & media downloads
+downloads/
+bin/ffmpeg.exe
+bin/ffprobe.exe
+bin/cloudflared.exe
+*.mp4
+*.mp3
+*.mkv
+*.webm
+*.part
+*.ytdl
+*.temp
+*.zip
+*.tar.gz
+
+# Logs & OS generated
+*.log
+.DS_Store
+Thumbs.db

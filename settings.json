@@ -1,0 +1,13 @@
+{
+  "default_quality": "best",
+  "default_output": "downloads",
+  "auto_open_folder": true,
+  "merge_mp4": true,
+  "embed_thumbnail": true,
+  "add_metadata": true,
+  "audio_bitrate": "192",
+  "concurrent_fragments": 16,
+  "check_updates": true,
+  "server_port": 5000,
+  "server_host": "0.0.0.0"
+}
