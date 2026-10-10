@@ -6,38 +6,6 @@
 
 ---
 
-## 🌟 ĐIỂM NỔI BẬT TRÊN ĐẠI PHIÊN BẢN v3.0.0 ULTRA STUDIO
-
-### 🤖 Trụ Cột 1: TRÍ TUỆ NHÂN TẠO (AI MEDIA CREATIVE) — ATRIA DAWN AI REASONING
-Tích hợp trực tiếp mô hình suy luận sâu **Atria Dawn AI Reasoning (Shanghai AI Lab)**:
-- **Tạo 5 Hook Câu View 3 Giây Đầu**: Tạo 5 mở đầu theo 5 tâm lý (*Tò mò, Gây sốc, FOMO, Thách thức, Hài hước*) kèm chỉ dẫn hình ảnh B-roll và âm thanh.
-- **Sinh Kịch Bản Shorts / TikTok Triệu View**: Kịch bản 30s-90s phân cảnh chi tiết (*Hook 0-3s, Nêu vấn đề, Cao trào giải pháp, Call to action*).
-- **Tóm Tắt & Phân Tích Video Chuyên Sâu**: Rút ra bài học cốt lõi, tâm lý giữ chân người xem và 3 ý tưởng remake video mới.
-- **Tối Ưu Tiêu Đề, Mô Tả & Bộ Thẻ SEO**: 5 tiêu đề giật tít CTR cao, mô tả kích thích tương tác và 15 hashtag thịnh hành cho TikTok, YouTube Shorts, Reels.
-- **Trợ Lý Đối Thoại Sáng Tạo (AI Chatbot)**: Brainstorm ý tưởng, tinh chỉnh kịch bản theo thời gian thực.
-- **Xem Quá Trình Suy Luận Của AI (Reasoning Chain Accordion)**: Minh bạch chuỗi tư duy phân tích của mô hình AI.
-- **Sao Chép & Xuất File .txt 1-Click**: Tải kịch bản về máy lưu trữ nhanh chóng.
-
-### ⚡ Trụ Cột 2: BỘ CÔNG CỤ LÁCH BẢN QUYỀN & TÁI TẠO NỘI DUNG (CREATIVE RE-UP ENGINE)
-Tự động hóa hoàn toàn các kỹ thuật can thiệp video bằng bộ lọc **FFmpeg Master**:
-- **Kích Hoạt 1-Click: Lách Bản Quyền Toàn Diện (Anti-Content ID Preset)**: Tự động lật gương + tăng tốc độ 1.04x + zoom 2% + xóa exif & làm mới metadata camera iPhone 16 Pro Max.
-- **Lật Gương Khung Hình (Horizontal Flip)**: Đảo chiều video phá vỡ mẫu đối xứng quét bản quyền.
-- **Tốc Độ Vi Mô Giữ Nguyên Cao Độ Giọng Nói (Micro-Speed Slider 1.00x - 1.15x)**: Bộ lọc `atempo` giữ nguyên tone giọng tự nhiên, không bị the thé méo tiếng.
-- **Chuyển Video Dọc 9:16 Nền Mờ Nghệ Thuật (Blur Canvas)**: Biến video ngang 16:9 thành video chuẩn TikTok/Reels với phông mờ Gaussian blur `boxblur=20:5`.
-- **Thu Phóng Vi Mô (Zoom 2%)**: Cắt lệch tọa độ pixel gốc khỏi hệ thống nhận diện tự động.
-- **Xóa Sạch & Giả Lập Metadata (Spoof Camera Metadata)**: Xóa exif cũ, ghi đè thông số mới `Apple iPhone 16 Pro Max Cinematic`.
-- **Đóng Dấu Bản Quyền Kênh (Personal Watermark)**: Chèn logo/tên kênh tinh tế góc phải video.
-- **Visual Trimmer / Scrubber**: Xem trước video trực quan và chọn điểm Start/End trực tiếp trên trình phát.
-
-### 🌌 Trụ Cột 5: GIAO DIỆN & TRẢI NGHIỆM ĐỈNH CAO (UI/UX NEXT-GEN)
-- **Interactive Dark Canvas Engine**: Các hạt lượng tử phát sáng tương tác mượt mà 60 FPS theo chuột, dải sương mù cực quang Aurora Mesh 4 góc.
-- **4 Phong Cách Nền Độc Quyền**: Aurora Galaxy, Cyber Particles, Quantum Grid, Minimalist Deep Dark.
-- **Cyber Radar Analysis Loader**: Radar 4 giai đoạn quét bóc tách No-Logo, giải mã CDN.
-- **Cinema Modal Video Player & Audio Waveform Visualizer**: Rạp chiếu phim thu nhỏ và sóng âm nhạc chuyển động.
-- **Trình Quản Trị Cài Đặt**: Quản lý Atria AI API Key, Ping test độ trễ trực tiếp, cập nhật FFmpeg & yt-dlp.
-
----
-
 ## 🚀 HƯỚNG DẪN KHỞI CHẠY & SỬ DỤNG
 
 ### Cách 1: Khởi chạy Web Tool (Khuyên dùng nhất)
